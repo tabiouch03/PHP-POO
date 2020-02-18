@@ -1,9 +1,9 @@
 <?php 
-include('./Ingredients.php');
-include('./Ustensiles.php');
-include('./Appareils.php');
-include('./Recettes.php');
-include('./TempsPreparation.php');
+include('./Class/Ingredients.php');
+include('./Class/Ustensiles.php');
+include('./Class/Appareils.php');
+include('./Class/Recettes.php');
+include('./Class/TempsPreparation.php');
 
 
 $ingredients = [
