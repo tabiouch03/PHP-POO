@@ -48,7 +48,7 @@ $title = [
 $mousseChoco = new Recette($title, $creation, $ingredients,$ustensiles, $appareils, $tempsPreparations, $difficulte);
 
 foreach ($mousseChoco->getTitle() as $title) {
-    echo "<h1 style='text-align:center;margin-top:180px;'>" . $title->getTitle() . "</h1>";
+    echo "<h1 style='font-family: Comic Sans MS;text-align:center;margin-top:180px;'>" . '&#127874 ' . $title->getTitle() . ' &#127874' . "</h1>";
 }
 
 foreach ($mousseChoco->getCreation() as $creation) {
@@ -75,5 +75,5 @@ foreach ($mousseChoco->getTempspreparation() as $tempsPreparations) {
 }
 
 foreach ($mousseChoco->getDifficulte() as $difficulte) {
-    echo "<p style='text-align:center;'>" .'<span style=color:red;>Niveau Requis : </span>' . $difficulte->getDifficulte() . "</p>";
+    echo "<p style='text-align:center;'>" .'<span style=color:red;>Niveau Requis : </span>' . $difficulte->getDifficulte() . '&#11088 &#11088 &#11088 &#11088;'. "</p>";
 }
