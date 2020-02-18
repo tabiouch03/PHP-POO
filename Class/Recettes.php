@@ -11,7 +11,7 @@ class Recette
     private $difficulte;
     private $creation;
 
-    public function __construct($ingredients, $ustensiles, $appareils, $tempsPreparations, $difficulte, $creation)
+    public function __construct($creation, $ingredients, $ustensiles, $appareils, $tempsPreparations, $difficulte)
     {
         $this->setIngredients($ingredients);
         $this->setUstensiles($ustensiles);
@@ -25,7 +25,7 @@ class Recette
     /* GUETTERS */
 
     /*
-    * return $tempsPreparations
+    * return $creation
     * type: array[object]
     */
     public function getCreation() {

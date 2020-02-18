@@ -8,6 +8,7 @@ include('./Class/Difficultes.php');
 include('./Class/Creations.php');
 
 
+
 $ingredients = [
     $chocolat = new Ingredient('Chocolat', 250, 'GR'),
     $oeuf = new Ingredient('Oeuf', 4 , 'Unité'),
@@ -36,15 +37,16 @@ $difficulte = [
 ];
 
 $creation = [
-    $creation = new creation('18/02/2020', 'Fabio')
+    $create = new creation('18/02/2020' , 'Manon')
 ];
 
+$mousseChoco = new Recette($creation, $ingredients,$ustensiles, $appareils, $tempsPreparations, $difficulte);
 
-$mousseChoco = new Recette($creation,$ingredients,$ustensiles, $appareils, $tempsPreparations, $difficulte);
 
 foreach ($mousseChoco->getCreation() as $creation) {
-    echo $creation->getNom();
+    echo '<style=font-size: 30px;>'.'Recette crée le' . $creation->getDate() . ' par ' . $creation->getNom() .'.' . '<br/>';
 }
+echo '<br/>';
 
 foreach ($mousseChoco->getIngredients() as $ingredient) {
     echo "Vous aurez besoin de " . $ingredient->getQuantity() . ' ' . $ingredient->getMesure() . ' de ' . $ingredient->getName() . '<br/>';
@@ -69,5 +71,5 @@ foreach ($mousseChoco->getTempspreparation() as $tempsPreparations) {
 echo '<br/>';
 
 foreach ($mousseChoco->getDifficulte() as $difficulte) {
-    echo 'Niveau Requis : ' . $difficulte->getDifficulte();
+    echo '<span style=color:red;>Niveau Requis : </span>' . $difficulte->getDifficulte();
 }

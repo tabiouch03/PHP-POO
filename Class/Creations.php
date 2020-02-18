@@ -1,6 +1,6 @@
 <?php 
 
-class creation {
+class Creation {
 
     private $date;
     private $nom;
