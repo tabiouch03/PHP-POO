@@ -32,7 +32,7 @@ $tempsPreparations = [
 $mousseChoco = new Recette($ingredients,$ustensiles, $appareils, $tempsPreparations);
 
 foreach ($mousseChoco->getIngredients() as $ingredient) {
-    echo 'Vous aurez besoin de ' . $ingredient->getQuantity() . ' ' . $ingredient->getMesure() . ' de ' . $ingredient->getName() . '<br/>';
+    echo "Vous aurez besoin de " . $ingredient->getQuantity() . ' ' . $ingredient->getMesure() . ' de ' . $ingredient->getName() . '<br/>';
 }
 echo '<br/>';
 
@@ -47,8 +47,8 @@ foreach ($mousseChoco->getAppareils() as $appareil) {
 echo '<br/>';
 
 foreach ($mousseChoco->getTempspreparation() as $tempsPreparations) {
-    echo 'Durée de preparation : ' . $tempsPreparations->getTempscuisson() . '<br/>' .
-    'Durée de conservation : ' . $tempsPreparations->getTempsconservation() . '<br/>' .
-    'Durée Total : ' . $tempsPreparations->getTempstotal();
+    echo 'Durée de preparation : ' . $tempsPreparations->getTempscuisson() . ' minutes' . '<br/>' .
+    'Durée de conservation : ' . $tempsPreparations->getTempsconservation() . ' minutes' . '<br/>' .
+    'Durée Total : ' . $tempsPreparations->getTempstotal() . ' minutes';
 
 }
