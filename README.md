@@ -30,7 +30,7 @@
 
 ## INSTANCIATION 
  
-#### Le mot-clé ‘‘new’’ peut être traduit comme « fabrique-moi un nouvel objet émanant de cette classe ». Quand vous « instanciez » une classe, la variable stockant l'objet ne stocke en #### fait pas l'objet lui-même, mais un identifiant qui représente cet objet. C'est-à-dire en faisant :  
+#### Le mot-clé ‘‘new’’ peut être traduit comme « fabrique-moi un nouvel objet émanant de cette classe ». Quand vous « instanciez » une classe, la variable stockant l'objet ne stocke en fait pas l'objet lui-même, mais un identifiant qui représente cet objet. C'est-à-dire en faisant :  
 #### $voiture = new Voiture();  
 #### $voiture ne contient pas l'objet lui-même, mais son identifiant unique.  
 #### Notez que si le constructeur de la classe ne comporte pas des arguments, il n'est pas nécessaire d'utiliser des parenthèses. Cependant, il peut être préférable de toujours les mettre afin de n’avoir jamais d’erreurs. 
