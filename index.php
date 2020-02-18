@@ -26,7 +26,7 @@ $appareils = [
 ];
 
 $tempsPreparations = [
-    $duree = new tempsPreparation('40minutes', '25minutes', '1heures')
+    $duree = new tempsPreparation(40, 25)
 ];
 
 $mousseChoco = new Recette($ingredients,$ustensiles, $appareils, $tempsPreparations);

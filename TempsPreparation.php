@@ -7,11 +7,11 @@ class TempsPreparation {
     private $tempsConservation;
     private $tempsTotal;
 
-    public function __construct($tempsCuisson, $tempsConservation, $tempsTotal) {
+    public function __construct($tempsCuisson, $tempsConservation) {
 
         $this->setTempsCuisson($tempsCuisson);
         $this->setTempsConservation($tempsConservation);
-        $this->setTempsTotal($tempsTotal);
+        $this->setTempsTotal($tempsCuisson, $tempsConservation);
 
     }
 
@@ -35,10 +35,10 @@ class TempsPreparation {
 
     /*
     * return $tempstotal
-    * type: string
+    * type: Calcule
     */
     public function getTempsTotal() {
-        return $this->tempstotal;
+        return $this->tempsTotal;
     }
 
     //-----------//
@@ -65,8 +65,7 @@ class TempsPreparation {
     * set value tempstotal
     * type: string
     */
-    public function setTempsTotal($tempstotal) {
-        $this->tempstotal = $tempstotal;
-
+    public function setTempsTotal($tempsCuisson, $tempsConservation) {
+        $this->tempsTotal = $tempsCuisson + $tempsConservation;
     }
 }
