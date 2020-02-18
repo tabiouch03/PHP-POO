@@ -4,6 +4,7 @@ include('./Class/Ustensiles.php');
 include('./Class/Appareils.php');
 include('./Class/Recettes.php');
 include('./Class/TempsPreparation.php');
+include('./Class/Difficultes.php');
 
 
 $ingredients = [
@@ -14,22 +15,27 @@ $ingredients = [
 ];
 
 $ustensiles = [
-    $saladier = new Ustensile('Saladier', 'Contient', 'Verre'),
-    $fouet = new Ustensile('Fouet', 'Fouette', 'Latex'),
-    $casserole = new Ustensile('Casserole', 'Chauffe et contient','Inox')
+    $saladier = new Ustensile('Saladier', 'Contenir', 'Verre'),
+    $fouet = new Ustensile('Fouet', 'Fouetter', 'Latex'),
+    $casserole = new Ustensile('Casserole', 'Chauffer et contenir','Inox')
 ];
 
 $appareils = [
-    $batteur = new Appareil('Batteur', 'Mélange'),
-    $four = new Appareil('Four', 'Cuit'),
-    $frigo = new Appareil('Frigo', 'Refroidit')
+    $batteur = new Appareil('Batteur', 'Mélanger'),
+    $four = new Appareil('Four', 'Cuire'),
+    $frigo = new Appareil('Frigo', 'Refroidir')
 ];
 
 $tempsPreparations = [
     $duree = new tempsPreparation(40, 25)
 ];
 
-$mousseChoco = new Recette($ingredients,$ustensiles, $appareils, $tempsPreparations);
+$difficulte = [
+    $niveau = new difficulte('Intermédiaire')
+];
+
+
+$mousseChoco = new Recette($ingredients,$ustensiles, $appareils, $tempsPreparations, $difficulte);
 
 foreach ($mousseChoco->getIngredients() as $ingredient) {
     echo "Vous aurez besoin de " . $ingredient->getQuantity() . ' ' . $ingredient->getMesure() . ' de ' . $ingredient->getName() . '<br/>';
@@ -49,6 +55,10 @@ echo '<br/>';
 foreach ($mousseChoco->getTempspreparation() as $tempsPreparations) {
     echo 'Durée de preparation : ' . $tempsPreparations->getTempscuisson() . ' minutes' . '<br/>' .
     'Durée de conservation : ' . $tempsPreparations->getTempsconservation() . ' minutes' . '<br/>' .
-    'Durée Total : ' . $tempsPreparations->getTempstotal() . ' minutes';
+    'Durée Total : ' . $tempsPreparations->getTempstotal() . ' minutes' . '<br/>';
+}
+echo '<br/>';
 
+foreach ($mousseChoco->getDifficulte() as $difficulte) {
+    echo 'Niveau Requis : ' . $difficulte->getDifficulte();
 }
