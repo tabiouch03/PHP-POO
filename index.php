@@ -5,6 +5,7 @@ include('./Class/Appareils.php');
 include('./Class/Recettes.php');
 include('./Class/TempsPreparation.php');
 include('./Class/Difficultes.php');
+include('./Class/Creations.php');
 
 
 $ingredients = [
@@ -34,8 +35,16 @@ $difficulte = [
     $niveau = new difficulte('Intermédiaire')
 ];
 
+$creation = [
+    $creation = new creation('18/02/2020', 'Fabio')
+];
 
-$mousseChoco = new Recette($ingredients,$ustensiles, $appareils, $tempsPreparations, $difficulte);
+
+$mousseChoco = new Recette($creation,$ingredients,$ustensiles, $appareils, $tempsPreparations, $difficulte);
+
+foreach ($mousseChoco->getCreation() as $creation) {
+    echo $creation->getNom();
+}
 
 foreach ($mousseChoco->getIngredients() as $ingredient) {
     echo "Vous aurez besoin de " . $ingredient->getQuantity() . ' ' . $ingredient->getMesure() . ' de ' . $ingredient->getName() . '<br/>';
