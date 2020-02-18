@@ -7,16 +7,26 @@ class Recette
     private $ingredients;
     private $ustensiles;
     private $appareils;
+    private $tempsPreparations;
 
-    public function __construct($ingredients, $ustensiles, $appareils)
+    public function __construct($ingredients, $ustensiles, $appareils, $tempsPreparations)
     {
         $this->setIngredients($ingredients);
         $this->setUstensiles($ustensiles);
         $this->setAppareils($appareils);
+        $this->setTempspreparations($tempsPreparations);
     }
 
 
     /* GUETTERS */
+
+    /*
+    * return $tempsPreparations
+    * type: array[object]
+    */
+    public function getTempsPreparation() {
+        return $this->tempsPreparations;
+    }
 
     /*
     * return $ingredient
@@ -47,6 +57,15 @@ class Recette
 
 
     /* SETTERS */
+
+    /*
+    * set value Tempspreparation
+    * type: array[object]
+    */
+    public function setTempsPreparations($tempsPreparations)
+    {
+        $this->tempsPreparations = $tempsPreparations;
+    }
 
     /*
     * set value ingredients

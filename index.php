@@ -3,6 +3,7 @@ include('./Ingredients.php');
 include('./Ustensiles.php');
 include('./Appareils.php');
 include('./Recettes.php');
+include('./TempsPreparation.php');
 
 
 $ingredients = [
@@ -24,7 +25,11 @@ $appareils = [
     $frigo = new Appareil('Frigo', 'Refroidit')
 ];
 
-$mousseChoco = new Recette($ingredients,$ustensiles, $appareils);
+$tempsPreparations = [
+    $duree = new tempsPreparation(40, 25)
+];
+
+$mousseChoco = new Recette($ingredients,$ustensiles, $appareils, $tempsPreparations);
 
 foreach ($mousseChoco->getIngredients() as $ingredient) {
     echo 'Vous aurez besoin de ' . $ingredient->getQuantity() . ' ' . $ingredient->getMesure() . ' de ' . $ingredient->getName() . '<br/>';
@@ -38,4 +43,12 @@ echo '<br/>';
 
 foreach ($mousseChoco->getAppareils() as $appareil) {
     echo 'Nous allons utilisé un ' . $appareil->getName() . ' qui va ' . $appareil->getUtility() . '<br/>'; 
+}
+echo '<br/>';
+
+foreach ($mousseChoco->getTempspreparation() as $tempsPreparations) {
+    echo 'Durée de preparation : ' . $tempsPreparations->getTempscuisson() . '<br/>' .
+    'Durée de conservation : ' . $tempsPreparations->getTempsconservation() . '<br/>' .
+    'Durée Total : ' . $tempsPreparations->getTempstotal();
+
 }
