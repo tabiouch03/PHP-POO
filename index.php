@@ -6,6 +6,7 @@ include('./Class/Recettes.php');
 include('./Class/TempsPreparation.php');
 include('./Class/Difficultes.php');
 include('./Class/Creations.php');
+include('./Class/TitreRecettes.php');
 
 
 
@@ -37,39 +38,42 @@ $difficulte = [
 ];
 
 $creation = [
-    $create = new creation('18/02/2020' , 'Manon')
+    $create = new creation('18/02/2020' , 'Fabio')
 ];
 
-$mousseChoco = new Recette($creation, $ingredients,$ustensiles, $appareils, $tempsPreparations, $difficulte);
+$title = [
+    $titre = new TitreRecette('Mousse Au Chocolat')
+];
 
+$mousseChoco = new Recette($title, $creation, $ingredients,$ustensiles, $appareils, $tempsPreparations, $difficulte);
+
+foreach ($mousseChoco->getTitle() as $title) {
+    echo "<h1 style='text-align:center;margin-top:180px;'>" . $title->getTitle() . "</h1>";
+}
 
 foreach ($mousseChoco->getCreation() as $creation) {
-    echo '<style=font-size: 30px;>'.'Recette crée le' . $creation->getDate() . ' par ' . $creation->getNom() .'.' . '<br/>';
+    echo "<p style='color:blue;font-size:20px;text-align:center;'>" . 'Recette crée le' . $creation->getDate() . ' par ' . $creation->getNom() .'.' . '<br/>' . "</p>";
 }
-echo '<br/>';
 
 foreach ($mousseChoco->getIngredients() as $ingredient) {
-    echo "Vous aurez besoin de " . $ingredient->getQuantity() . ' ' . $ingredient->getMesure() . ' de ' . $ingredient->getName() . '<br/>';
+    echo "<p style='text-align:center;'>" .'Vous aurez besoin de ' . $ingredient->getQuantity() . ' ' . $ingredient->getMesure() . ' de ' . $ingredient->getName() . '<br/>'. "</p>";
 }
-echo '<br/>';
+
 
 foreach ($mousseChoco->getUstensiles() as $ustensile) {
-    echo 'Vous aurez besoin de ' . $ustensile->getName() . ' pour ' . $ustensile->getUtility() . ' qui aura comme matériaux du ' . $ustensile->getMateriaux() . '<br/>';
+    echo "<p style='text-align:center;'>" .'Vous aurez besoin de ' . $ustensile->getName() . ' pour ' . $ustensile->getUtility() . ' qui aura comme matériaux du ' . $ustensile->getMateriaux() . '<br/>'. "</p>";
 }
-echo '<br/>';
 
 foreach ($mousseChoco->getAppareils() as $appareil) {
-    echo 'Nous allons utilisé un ' . $appareil->getName() . ' qui va ' . $appareil->getUtility() . '<br/>'; 
+    echo "<p style='text-align:center;'>" .'Nous allons utilisé un ' . $appareil->getName() . ' qui va ' . $appareil->getUtility() . '<br/>'. "</p>"; 
 }
-echo '<br/>';
 
 foreach ($mousseChoco->getTempspreparation() as $tempsPreparations) {
-    echo 'Durée de preparation : ' . $tempsPreparations->getTempscuisson() . ' minutes' . '<br/>' .
+    echo "<p style='text-align:center;'>" .'Durée de preparation : ' . $tempsPreparations->getTempscuisson() . ' minutes' . '<br/>' .
     'Durée de conservation : ' . $tempsPreparations->getTempsconservation() . ' minutes' . '<br/>' .
-    'Durée Total : ' . $tempsPreparations->getTempstotal() . ' minutes' . '<br/>';
+    'Durée Total : ' . $tempsPreparations->getTempstotal() . ' minutes' . '<br/>'. "</p>";
 }
-echo '<br/>';
 
 foreach ($mousseChoco->getDifficulte() as $difficulte) {
-    echo '<span style=color:red;>Niveau Requis : </span>' . $difficulte->getDifficulte();
+    echo "<p style='text-align:center;'>" .'<span style=color:red;>Niveau Requis : </span>' . $difficulte->getDifficulte() . "</p>";
 }

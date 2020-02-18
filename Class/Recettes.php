@@ -10,8 +10,9 @@ class Recette
     private $tempsPreparations;
     private $difficulte;
     private $creation;
+    private $title;
 
-    public function __construct($creation, $ingredients, $ustensiles, $appareils, $tempsPreparations, $difficulte)
+    public function __construct($title,$creation, $ingredients, $ustensiles, $appareils, $tempsPreparations, $difficulte)
     {
         $this->setIngredients($ingredients);
         $this->setUstensiles($ustensiles);
@@ -19,10 +20,19 @@ class Recette
         $this->setTempspreparations($tempsPreparations);
         $this->setDifficulte($difficulte);
         $this->setCreation($creation);
+        $this->setTitle($title);
     }
 
 
     /* GUETTERS */
+
+    /*
+    * return $title
+    * type: array[object]
+    */
+    public function getTitle() {
+        return $this->title;
+    }
 
     /*
     * return $creation
@@ -77,6 +87,15 @@ class Recette
 
 
     /* SETTERS */
+
+    /*
+    * set value title
+    * type: array[object]
+    */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
 
     /*
     * set value difficulte
